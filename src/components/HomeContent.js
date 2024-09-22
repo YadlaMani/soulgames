@@ -12,14 +12,14 @@ export default function HomeContent() {
           <h1 className="text-4xl font-bold mb-6">Welcome to SoulGames</h1>
           {publicKey ? (
             <div>
-              <p>Welcome, {publicKey.toBase58()}!</p>
+              <p>Welcome, Enjoy ur time here!</p>
             </div>
           ) : (
             <div>
               <p>Connect Ur Wallet to play</p>
             </div>
           )}
-          <WalletMultiButton className="mb-12" />
+          <WalletMultiButton />
 
           <div className="py-8">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-lg">

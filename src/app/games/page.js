@@ -23,7 +23,7 @@ const GamePage = () => {
         </CardHeader>
 
         <iframe
-          src="https://lottie.host/embed/0c37d90c-2ce7-4f5f-81ca-4809c4627b66/95awyh6Ffy.json"
+          src="https://lottie.host/embed/78c986fc-8a95-4e99-8187-7f70348f4110/3EV9XnIy9D.json"
           width="100%"
           height="300px"
           className="rounded-b-lg"
