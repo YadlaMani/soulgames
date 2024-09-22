@@ -24,3 +24,13 @@ export async function getUserAccount(publicAddress) {
     throw new Error("Failed to fetch user account");
   }
 }
+export async function updateUserBalance(publicAddress, balance) {
+  await connectToDB();
+  try {
+    let userAccount = await UserAccount.findOne({ publicAddress });
+    userAccount.lamports = balance;
+    await userAccount.save();
+  } catch (err) {
+    console.error("Enter updating the balance:", err);
+  }
+}

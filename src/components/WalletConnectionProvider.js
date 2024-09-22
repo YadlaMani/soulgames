@@ -36,7 +36,7 @@ export default function WalletConnectionProvider({ children }) {
   }, [publicKey, isClient]);
 
   if (!isClient) {
-    return null; // or a loading spinner
+    return null;
   }
 
   return children({ userAccount, error });
