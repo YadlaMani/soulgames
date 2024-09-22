@@ -12,8 +12,7 @@ const GamePage = () => {
   };
 
   const handleContribute = () => {
-    // Replace this with the actual contribution page URL
-    router.push("/contribute");
+    window.open("https://github.com/YadlaMani/soulgames", "_blank");
   };
 
   return (
