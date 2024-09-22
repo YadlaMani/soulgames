@@ -11,8 +11,13 @@ const GamePage = () => {
     router.push("/dice");
   };
 
+  const handleContribute = () => {
+    // Replace this with the actual contribution page URL
+    router.push("/contribute");
+  };
+
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex flex-col md:flex-row justify-center items-center min-h-screen bg-gray-100 p-4 gap-8">
       <Card
         isFooterBlurred
         radius="lg"
@@ -40,6 +45,35 @@ const GamePage = () => {
             onClick={handlePlay}
           >
             Play
+          </Button>
+        </CardFooter>
+      </Card>
+
+      <Card
+        isFooterBlurred
+        radius="lg"
+        className="border-none relative w-full max-w-sm shadow-lg transform transition-transform duration-300 ease-in-out hover:scale-105"
+      >
+        <CardHeader className="justify-center py-4 bg-green-500 text-white rounded-t-lg">
+          <h2 className="text-xl font-semibold">More Games Coming Soon!</h2>
+        </CardHeader>
+
+        <div className="h-[300px] flex items-center justify-center bg-green-100">
+          <p className="text-lg text-green-700 text-center px-4">
+            We're working on exciting new games. Stay tuned!
+          </p>
+        </div>
+
+        <CardFooter className="flex justify-center bg-green-100 backdrop-blur-lg py-4 absolute bottom-0 w-full rounded-b-lg shadow-md z-10">
+          <Button
+            className="text-sm text-white bg-green-500 hover:bg-green-600 transition-transform duration-300 ease-in-out hover:scale-110"
+            variant="flat"
+            color="primary"
+            radius="lg"
+            size="md"
+            onClick={handleContribute}
+          >
+            Contribute a Game
           </Button>
         </CardFooter>
       </Card>

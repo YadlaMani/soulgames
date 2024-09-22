@@ -45,8 +45,8 @@ export default function Header({ userAccount }) {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/withdraw">
-            Withdraw
+          <Link color="foreground" href="/funds">
+            Funds
           </Link>
         </NavbarItem>
         <NavbarItem>

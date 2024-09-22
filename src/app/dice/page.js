@@ -52,6 +52,12 @@ const DiceGame = () => {
   const signAndRollDice = async (guess) => {
     if (!publicKey) return;
 
+    // Prevent betting if bet exceeds balance
+    if (bet > balance) {
+      setMessage(`Insufficient balance. You only have ${balance} LAM.`);
+      return;
+    }
+
     const message = `Rolling the dice for ${guess}`;
     const encodedMessage = new TextEncoder().encode(message);
 
@@ -86,16 +92,26 @@ const DiceGame = () => {
 
   const rollDice = async (guess) => {
     const newRoll = Math.floor(Math.random() * 6) + 1;
-    const newBalance =
-      guess === "higher" && newRoll > currentDie
-        ? balance + bet
-        : balance - bet;
+    const win = guess === "higher" && newRoll > currentDie;
+    const loss = guess === "lower" && newRoll < currentDie;
+
+    // Ensure balance doesn't go negative
+    if (!win && !loss && balance - bet < 0) {
+      setMessage("Insufficient funds to continue playing.");
+      return;
+    }
+
+    const newBalance = win ? balance + bet : balance - bet;
+    if (newBalance < 0) {
+      setMessage("Insufficient balance for this bet.");
+      return;
+    }
 
     setBalance(newBalance);
     await updateUserBalance(publicKey, newBalance);
     setCurrentDie(newRoll);
     setMessage(
-      guess === "higher" && newRoll > currentDie
+      win
         ? `You won! New balance: ${newBalance} LAM`
         : `You lost. New balance: ${newBalance} LAM`
     );
